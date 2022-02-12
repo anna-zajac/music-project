@@ -1,20 +1,7 @@
-// bootstrap
 
-@import "bootstrap/functions";
-@import "bootstrap/variables";
-@import "bootstrap/mixins";
-@import "bootstrap/utilities";
-@import "bootstrap/grid";
+@import 'partials/variables';
+@import 'partials/topography';
+@import 'partials/global';
+@import 'partials/header';
 
-// normalize
-
-@import "normalize";
-
-//
-
-@import "global";
-@import "variables";
-@import "topography";
-
-
-
+@import 'partials/normalize';
