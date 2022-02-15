@@ -1,0 +1,111 @@
+
+.subscribe {
+  background-image: url('../../images/subscribe.jpg');
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+  color: $color-light;
+  margin: 90px 0;
+  height: 1000px;
+
+  .row {
+    padding-top: 150px;
+  }
+
+  h6 {
+    font-family: $font-main;
+    font-weight: $font-semibold;
+    text-transform: uppercase;
+    text-align: center;
+    color: $color-light;
+    font-size: 80px;
+    line-height: 5px;
+    letter-spacing: 20px;
+    margin: 0;
+  
+    span{
+      font-weight: $font-black;
+      letter-spacing: 20px;
+    }
+  }
+}
+
+.join-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -315px;
+
+  .btn {
+    max-width: 313px;
+    min-height: 133px;
+    text-align: center;
+    font-family: $font-main;
+    font-weight: $font-bold;
+    font-size: 30px;
+    line-height: 26px;
+    background-color: $color-main;
+    color: $color-light;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 8px;
+    border-radius: 4px;
+    padding: 30px 25px;
+    margin-right: 100px;
+  }
+}
+
+.artist_img {
+  position: relative;
+  width: 465px;
+  height: 578px;
+}
+
+.artist_name {
+  color: $color-light;
+  font-family: $font-main;
+  font-weight: $font-black;
+  font-size: 90px;
+  letter-spacing: 22px;
+  margin: 0;
+  position: absolute;
+  left: -62%;
+  bottom: 83px;
+
+  p {
+    margin: -38px 0;
+
+    span {
+      color: $color-main;
+    }
+  }
+
+  p:last-of-type {
+    margin-left: 70px;
+    padding-top: 0;
+  }
+}
+
+.artist_album {
+  width: 735px;
+  text-align: right;
+  font-size: 40px;
+  letter-spacing: 8px;
+  position: absolute;
+  right: -36px;
+
+  p:first-child {
+    text-transform: uppercase;
+    color: $color-secondary;
+    font-weight: $font-bold;  
+    margin-bottom: 0;
+  }
+
+  p:last-child {
+    color: $color-light;
+    font-weight: $font-semibold;
+    margin-top: 0;
+  }
+}
+

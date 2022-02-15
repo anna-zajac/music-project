@@ -7,6 +7,8 @@
   <title>Taste</title>
   <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/css/green-audio-player.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap-grid.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -21,7 +23,66 @@
     <a href="#search">Search</a>
     <a href="#discover">Discover</a>
   </div>
-  
 
+  <div id="pages">
+    <section id="home">
+    <div class="home-wrapper container">
+      <div class="song_player">
+        <audio src="songs/At_The_Top_David_Renda.mp3"></audio>
+      </div>
+      <div class="category-wrapper row">
+        <div class="category-title col-4">
+          <p>Categories: Slow, melancholy</p>
+        </div>
+        <div class="rating col-8">
+          <p>#25 in the ranking</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="subscribe">
+      <h6>Subscribe<span> Now</span></h6>
+      <div class="row">
+        <div class="join-btn col-md-7">
+          <div>
+            <a href="#" class="btn">join now</a>
+          </div>
+        </div>
+        <div class="artist col-md-5">
+          <div class="artist_img">
+            <img src="images/artist.jpg" alt="image">
+            <div class="artist_name">
+              <p>Dean</p>
+              <p>Hen<span>son</span></p>
+            </div>
+            <div class="artist_album">
+              <p>New album</p>
+              <p>Available only for subscribes</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+    <section id="search">
+    <div class="search-wrapper container"></div>
+    </section>
+    <section id="discover">
+    <div class="discover-wrapper container"></div>
+    </section>
+  </div>
+
+  <script id="template-songs" type="text/x-handlebars-template">
+    <div class="song">
+      <h3 class="song_title"> {{author}} - {{title}}</h3>
+    </div>
+    <div class="song_player">
+      <audio src="songs/{{songname}}" type="audio/mpeg"></audio>
+    </div>
+    <div class="song_description">
+    </div>
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/js/green-audio-player.min.js"></script>
 </body>
 </html>
