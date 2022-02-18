@@ -26,38 +26,37 @@
 
   <div id="pages">
     <section id="home">
-    <div class="home-wrapper container">
-      <div class="songs_list"></div>
-    </div>
-    </div>
-    <div class="subscribe">
-      <h6>Subscribe<span> Now</span></h6>
-      <div class="row">
-        <div class="join-btn col-md-7">
-          <div>
-            <a href="#" class="btn">join now</a>
-          </div>
-        </div>
-        <div class="artist col-md-5">
-          <div class="artist_img">
-            <img src="images/artist.jpg" alt="image">
-            <div class="artist_name">
-              <p>Dean</p>
-              <p>Hen<span>son</span></p>
+      <div class="home-wrapper container">
+        <div class="songs_list"></div>
+      </div>
+      <div class="subscribe">
+        <h6>Subscribe<span> Now</span></h6>
+        <div class="row">
+          <div class="join-btn col-md-7">
+            <div>
+              <a href="#" class="btn">join now</a>
             </div>
-            <div class="artist_album">
-              <p>New album</p>
-              <p>Available only for subscribes</p>
+          </div>
+          <div class="artist col-md-5">
+            <div class="artist_img">
+              <img src="images/artist.jpg" alt="image">
+              <div class="artist_name">
+                <p>Dean</p>
+                <p>Hen<span>son</span></p>
+              </div>
+              <div class="artist_album">
+                <p>New album</p>
+                <p>Available only for subscribes</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="footer">
-      <p>All rights reserved</p>
-    </div>
+      <div class="footer">
+        <p>All rights reserved</p>
+      </div>
     </section>
-    
+
     <section id="search">
     <div class="search-wrapper container"></div>
     </section>
@@ -66,7 +65,7 @@
     </section>
   </div>
 
-  <script id="template-songs" type="text/x-handlebars-template">
+  <script id="template-song" type="text/x-handlebars-template">
     <div class="song">
       <h3 class="song_title"> {{author}} - {{title}}</h3>
       <div class="player">
@@ -79,11 +78,7 @@
       </div>
       <div class="song_categories">
         {{#each categories}}
-          {{#if @first}}
-            {{this}}
-            {{else}}
-            {{this}}
-          {{/if}}
+          {{this}}      
         {{/each}}
       </div>
       <div class="ranking">
@@ -93,5 +88,6 @@
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/greghub/green-audio-player/dist/js/green-audio-player.min.js"></script>
+  <script src="js/app.js" type="module"></script>
 </body>
 </html>

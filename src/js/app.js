@@ -19,7 +19,6 @@ const app = {
 
         thisApp.initSongs();
       });
-    console.log('thisApp.data', JSON.stringyfy(thisApp.data));
   },
 
   init: function(){
