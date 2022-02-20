@@ -9,8 +9,8 @@ class Home {
     thisHome.data = {};
     thisHome.data.songs = songs;
 
-    thisHome.render(element);
-    thisHome.getElements();
+    thisHome.getElements(element);
+    thisHome.renderSongList();
   }
 
   getElements(element){
@@ -18,14 +18,14 @@ class Home {
 
     thisHome.dom = {};
     thisHome.dom.wrapper = element;
-    thisHome.dom.songList = thisHome.dom.wrapper.querySelector(select.containerOf.songList);
+    thisHome.dom.songList = document.querySelector(select.containerOf.songList);
   }
 
   renderSongList(){
     const thisHome = this;
 
     for(let song in thisHome.data.songs){
-      new Song(thisHome.data.songs[song]);
+      new Song(thisHome.data.songs[song], thisHome.dom.wrapper);
     }
 
   }

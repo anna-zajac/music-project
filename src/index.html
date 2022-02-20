@@ -58,7 +58,18 @@
     </section>
 
     <section id="search">
-    <div class="search-wrapper container"></div>
+    <div class="search-wrapper container">
+      <h3>Search</h3>
+      <div class="row">
+        <div class="col-md-3"><h4>Name</h4>></div>
+        <div class="col-md-6">
+          <input type="text" title="Search a song">
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-1"></button>
+        </div>
+      </div>
+    </div>
     </section>
     <section id="discover">
     <div class="discover-wrapper container"></div>
@@ -71,19 +82,21 @@
       <div class="player">
         <audio src="songs/{{filename}}" type="audio/mpeg"></audio>
       </div>
-      <div class="song_description">
-        <div>
-          <p>Category:</p>
+      <div class="song_info row">
+        <div class="song_description col-md-8">
+          <div>
+            <p>Category:</p>
+            <div class="song_categories">
+              {{#each categories}}
+                {{this}}      
+              {{/each}}
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="song_categories">
-        {{#each categories}}
-          {{this}}      
-        {{/each}}
-      </div>
-      <div class="ranking">
-        <p>{{ranking}} in the ranking</p>
-      </div>
+        <div class="ranking col=md-4">
+          <p>{{ranking}} in the ranking</p>
+        </div>
+      </div> 
     </div>
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>

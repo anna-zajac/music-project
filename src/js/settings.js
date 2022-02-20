@@ -6,6 +6,9 @@ export const select = {
   containerOf: {
     pages: '#pages',
     songList: '.songs_list',
+    homePage: '.home-wrapper',
+    search: '.search-wrapper',
+    discover: '.discover-wrapper',
   },
   nav: {
     links: '.main-nav a',
@@ -23,7 +26,7 @@ export const classNames = {
 
 export const settings = {
   db: {
-    url: '//localhost:3131',
+    url: '//' + window.location.hostname + (window.location.hostname == 'localhost' ? ':3131' : ''),
     songs: 'songs',
   },
 };
