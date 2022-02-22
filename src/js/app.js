@@ -7,9 +7,9 @@ const app = {
   initHome: function(){
     const thisApp = this;
 
-    const homePageWidget = document.querySelector(select.containerOf.homePage);
+    const homeElem = document.querySelector(select.containerOf.homePage);
 
-    thisApp.homePage = new Home(homePageWidget);
+    thisApp.homePage = new Home(homeElem);
   },
 
   initPages: function(){
@@ -65,7 +65,7 @@ const app = {
     const thisApp = this;
 
     for(let song in thisApp.data.songs){
-      new Song(thisApp.data.songs[song].id, thisApp.data.songs[song]);
+      new Song(thisApp.data.songs[song]);
     }
   },
 
@@ -74,18 +74,33 @@ const app = {
 
     thisApp.data = {};
 
-    const url = settings.db.url + '/' + settings.db.songs;
+    const urls = {
+      songs: settings.db.url + '/' + settings.db.songs,
+      authors: settings.db.url + '/' + settings.db.authors,
+    };
+    
+    Promise.all([
+      fetch(urls.songs),
+      fetch(urls.authors),
+    ])
+      .then(function(allResponses){
+        const songResponse = allResponses[0];
+        const authorsResponse = allResponses[1];
 
-    fetch(url)
-      .then(function(rawResponse){
-        return rawResponse.json();
+        return Promise.all([
+          songResponse.json(),
+          authorsResponse.json(),
+        ]);
       })
-      .then(function(parsedResponse){
-        console.log('parsedResponse', parsedResponse);
+      .then(function ([songs, authors]){
+        thisApp.parseData(songs, authors);
+      });  
+  },
 
-        thisApp.data.songs = parsedResponse;
-        thisApp.initSong();
-      });
+  parseData(songs, authors){
+    const thisApp = this;
+    thisApp.data.songs = songs;
+    thisApp.data.authors = authors;
   },
 
   init: function(){

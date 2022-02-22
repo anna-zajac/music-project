@@ -3,10 +3,12 @@ import {select, templates} from '../settings.js';
 import utils from '../utils.js';
 
 class Song{
-  constructor(songs){
+  constructor(songs, authors){
     const thisSong = this;
 
+  
     thisSong.songs = songs;
+    thisSong.authors = authors;
 
     thisSong.renderSongs();
   }
@@ -21,6 +23,7 @@ class Song{
 
     songContainer.appendChild(songDOM);
   }
+
 }
 
 export default Song;
