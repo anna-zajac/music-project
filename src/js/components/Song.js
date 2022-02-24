@@ -1,27 +1,25 @@
 
-import {select, templates} from '../settings.js';
+import {templates} from '../settings.js';
 import utils from '../utils.js';
 
 class Song{
-  constructor(songs, authors){
+  constructor(song, wrapper){
     const thisSong = this;
 
   
-    thisSong.songs = songs;
-    thisSong.authors = authors;
+    thisSong.song = song;
+    thisSong.wrapper = wrapper;
 
-    thisSong.renderSongs();
+    thisSong.renderSong();
   }
 
-  renderSongs(){
+  renderSong(){
     const thisSong = this;
 
-    const generatedHTML = templates.homeSong(thisSong.songs);
+    const generatedHTML = templates.song(thisSong.song);
     const songDOM = utils.createDOMFromHTML(generatedHTML);
 
-    const songContainer = document.querySelector(select.containerOf.songList);
-
-    songContainer.appendChild(songDOM);
+    thisSong.wrapper.appendChild(songDOM);
   }
 
 }

@@ -1,0 +1,32 @@
+
+.song {
+  text-align: center;
+  margin-bottom: 60px;
+
+  &_title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: $font-regular;
+    letter-spacing: 2.25px;
+
+    span {
+      text-transform: uppercase;
+      font-weight: $font-semibold;
+    }
+  }
+
+  &_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: $base-size;
+    letter-spacing: 1.5px;
+  }
+
+  .player {
+      width: 100%;
+  }
+    
+}
+    
+

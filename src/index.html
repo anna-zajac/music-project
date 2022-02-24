@@ -85,24 +85,22 @@
 
   <script id="template-song" type="text/x-handlebars-template">
     <div class="song">
-      <h3 class="song_title"> {{ author }} - {{ title }}</h3>
+      <h3 class="song_title"> <span>{{ author }}</span> - {{ title }}</h3>
       <div class="player">
-        <audio>
+        <audio controls>
           <source src="songs/{{ filename }}" type="audio/mpeg">
         </audio>
       </div>
-      <div class="song_info row">
-        <div class="song_description col-md-8">
-          <div>
-            <p>Category:</p>
-            <div class="song_categories">
-              {{#each categories}}
-                {{this}}      
-              {{/each}}
-            </div>
-          </div>
+      <div class="song_info">
+        <div class="song_description">
+          <p>Categories:</p>
         </div>
-        <div class="ranking col=md-4">
+        <div class="song_categories">
+          {{#each categories}}
+          {{this}}      
+          {{/each}}
+        </div>
+        <div class="ranking">
           <p>#{{ranking}} in the ranking</p>
         </div>
       </div> 

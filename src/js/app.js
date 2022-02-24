@@ -9,7 +9,7 @@ const app = {
 
     const homeElem = document.querySelector(select.containerOf.homePage);
 
-    thisApp.homePage = new Home(homeElem);
+    thisApp.homePage = new Home(homeElem, thisApp.data.songs);
   },
 
   initPages: function(){
@@ -94,13 +94,25 @@ const app = {
       })
       .then(function ([songs, authors]){
         thisApp.parseData(songs, authors);
+        thisApp.initHome();
       });  
   },
 
   parseData(songs, authors){
     const thisApp = this;
-    thisApp.data.songs = songs;
-    thisApp.data.authors = authors;
+    /*thisApp.data.songs = songs.map(function(song){
+      return {...song, author: authors.find(function)}
+    });
+    thisApp.data.authors = authors;*/
+
+    thisApp.data.songs = [];
+    for(let song of songs){
+      const author = authors.find(function(author){
+        return author.id == song.author;
+      });
+      song.author = author.name;
+      thisApp.data.songs.push(song);
+    }
   },
 
   init: function(){
@@ -112,7 +124,6 @@ const app = {
 
     thisApp.initData();
     thisApp.initPages();
-    thisApp.initHome();
   }
 
 };

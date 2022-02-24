@@ -3,12 +3,11 @@ import Song from './Song.js';
 import {select} from '../settings.js';
 
 class Home {
-  constructor(element, songs, authors){
+  constructor(element, songs){
     const thisHome = this;
 
     thisHome.data = {};
     thisHome.data.songs = songs;
-    thisHome.data.authors = authors;
 
     thisHome.getElements(element);
     thisHome.renderSongList();
@@ -19,14 +18,14 @@ class Home {
 
     thisHome.dom = {};
     thisHome.dom.wrapper = element;
-    thisHome.dom.songList = document.querySelector(select.containerOf.songList);
+    thisHome.dom.songList = element.querySelector(select.containerOf.songList);
   }
 
   renderSongList(){
     const thisHome = this;
 
-    for(let song in thisHome.data.songs){
-      new Song(thisHome.data.songs[song], thisHome.dom.wrapper);
+    for(let song of thisHome.data.songs){
+      new Song(song, thisHome.dom.songList);
     }
 
   }

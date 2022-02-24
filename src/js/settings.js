@@ -39,7 +39,7 @@ export const settings = {
 };
 
 export const templates = {
-  homeSong: Handlebars.compile(document.querySelector(select.templateOf.songs).innerHTML),
+  song: Handlebars.compile(document.querySelector(select.templateOf.songs).innerHTML),
   songCategoryTemplate: Handlebars.compile(document.querySelector(select.templateOf.category).innerHTML),
   selectCategoryTemplate: Handlebars.compile(document.querySelector(select.templateOf.select).innerHTML),
 };
