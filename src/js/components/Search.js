@@ -3,7 +3,7 @@ import utils from '../utils.js';
 
 
 class Search{
-  constructor(songs, authors, categories){
+  constructor(element, songs, authors, categories){
     const thisSearch = this;
 
     thisSearch.data = {};
@@ -11,10 +11,9 @@ class Search{
     thisSearch.data.authors = authors;
     thisSearch.data.categories = categories;
 
-    thisSearch.getElements();
+    thisSearch.getElements(element);
     thisSearch.renderCategories();
-
-
+    this.renderCategorySelect();
   }
 
   getElements(element) {
@@ -26,18 +25,28 @@ class Search{
     thisSearch.dom.searchSong = document.querySelector(select.containerOf.searchPage);
   }
 
-  renderView(){
+  renderCategorySelect(){
     const thisSearch = this;
+    const generatedHTML = templates.selectCategoryTemplate(thisSearch.data.categories);
+    thisSearch.categoryElem = utils.createDOMFromHTML(generatedHTML);
 
-    const generatedHTML = templates.songCategoryTemplate(thisSearch.data.categories);
-    thisSearch.element = utils.createDOMFromHTML(generatedHTML);
-
-    const categoryContainter = document.querySelector(select.containerOf.searchPage);
-
-    categoryContainter.appendChild(thisSearch.element);
-  
+    const selectContainer = document.querySelector(select.containerOf.searchPage);
+    selectContainer.appendChild(thisSearch.categoryElem);
   }
 
+  renderCategories(){
+    const thisSearch = this;
+
+    for(let category of thisSearch.data.categories){
+      const linkHTML = {name: category};
+      const categoriesSelect = templates.selectCategoryTemplate(linkHTML);
+
+      const categorySelectDOM = utils.createDOMFromHTML(categoriesSelect);
+
+      thisSearch.dom.selectCategory.appendChild(categorySelectDOM);
+    }
+
+  }
 }
 
 export default Search;

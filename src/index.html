@@ -52,24 +52,19 @@
           </div>
         </div>
       </div>
-      <div class="footer">
-        <p>All rights reserved</p>
-      </div>
     </section>
 
     <section id="search">
     <div class="search-wrapper container">
-      <h3>Search</h3>
-      <div class="row">
-        <div class="col-md-3">
-          <h4>Name</h4>
+      <h2>Search</h2>
+      <div class="search_form row">
+        <div class="search_name">
+          <label for="search">Name</label>
+          <input id="search" type="text" title="Search a song">
         </div>
-        <div class="col-md-6">
-          <input type="text" title="Search a song">
-        </div>
-        <div>
-          <h4>Categories</h4>
-          <select id="category" form="category-form"></select>
+        <div class="search_categories">
+          <label for="category">Category</label>
+          <select id="category" name="category"></select>
         </div>
         <div class="col-md-3 button-wrapper">
           <button type="button" class="btn btn-1">Search</button>
@@ -81,13 +76,17 @@
     <section id="discover">
     <div class="discover-wrapper container"></div>
     </section>
+
+    <div class="footer">
+      <p>All rights reserved</p>
+    </div>
   </div>
 
   <script id="template-song" type="text/x-handlebars-template">
     <div class="song">
       <h3 class="song_title"> <span>{{ author }}</span> - {{ title }}</h3>
       <div class="player">
-        <audio controls>
+        <audio>
           <source src="songs/{{ filename }}" type="audio/mpeg">
         </audio>
       </div>

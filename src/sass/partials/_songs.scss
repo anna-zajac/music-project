@@ -17,15 +17,30 @@
 
   &_info {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     font-size: $base-size;
     letter-spacing: 1.5px;
+
+    .song_categories {
+      margin-left: -90px;
+    }
   }
 
   .player {
-      width: 100%;
+    width: 60%;
+    margin-left: 125px;
   }
+
+  .green-audio-player .slider .gap-progress .pin {
+    background-color: $color-main;
+  }
+
+  .green-audio-player .slider .gap-progress {
+    background-color: $color-main;
+  }
+
+  
     
 }
     

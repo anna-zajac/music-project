@@ -28,6 +28,16 @@ class Home {
       new Song(song, thisHome.dom.songList);
     }
 
+    thisHome.initPlayer();
+
+  }
+
+  initPlayer(){
+    // eslint-disable-next-line no-undef
+    GreenAudioPlayer.init({
+      selector: '.player', // inits Green Audio Player on each audio container that has class "player"
+      stopOthersOnPlay: true
+    });
   }
 }
 
