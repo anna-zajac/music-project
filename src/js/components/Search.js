@@ -19,7 +19,7 @@ class Search{
   getElements(element) {
     const thisSearch = this;
 
-    thisSearch.dom ={};
+    thisSearch.dom = {};
     thisSearch.dom.wrapper = element;
     thisSearch.dom.selectCategory = document.querySelector(select.form.selectCategory);
     thisSearch.dom.searchSong = document.querySelector(select.containerOf.searchPage);
@@ -37,7 +37,7 @@ class Search{
   renderCategories(){
     const thisSearch = this;
 
-    for(let category of thisSearch.data.categories){
+    for(let category in thisSearch.data.categories){
       const linkHTML = {name: category};
       const categoriesSelect = templates.selectCategoryTemplate(linkHTML);
 

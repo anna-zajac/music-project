@@ -1,5 +1,6 @@
 import Home from './components/Home.js';
 import Search from './components/Search.js';
+import Discover from './components/Discover.js';
 import Song from './components/Song.js';
 import {select, settings, classNames} from './settings.js';
 
@@ -15,7 +16,14 @@ const app = {
     const thisApp = this;
 
     const searchElem = document.querySelector(select.containerOf.searchPage);
-    thisApp.searchPage = new Search(searchElem, thisApp.data.songs, thisApp.data.authors, thisApp.data.categories)
+    thisApp.searchPage = new Search(searchElem, thisApp.data.songs, thisApp.data.authors, thisApp.data.categories);
+  },
+
+  initDiscover: function(){
+    const thisApp = this;
+
+    const discoverElem = document.querySelector(select.containerOf.discoverPage);
+    thisApp.discoverPage = new Discover(discoverElem, thisApp.data.songs, thisApp.data.authors, thisApp,data.categories);
   },
 
   initPages: function(){
@@ -102,6 +110,7 @@ const app = {
         thisApp.parseData(songs, authors);
         thisApp.initHome();
         thisApp.initSearch();
+        thisApp.initDiscover();
       });  
   },
 
