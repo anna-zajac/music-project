@@ -34,7 +34,7 @@
         <div class="row">
           <div class="join-btn col-md-7">
             <div>
-              <a href="#" class="btn">join now</a>
+              <a href="#" class="btn btn-subscribe">join now</a>
             </div>
           </div>
           <div class="artist col-md-5">
@@ -57,16 +57,16 @@
     <section id="search">
     <div class="search-wrapper container">
       <h2>Search</h2>
-      <div class="search_form row">
+      <div class="search_form">
         <div class="search_name">
           <label for="search">Name</label>
-          <input id="search" type="text" title="Search a song">
+          <input id="search_song" type="text" title="Search a song">
         </div>
         <div class="search_categories">
           <label for="category">Category</label>
           <select id="category" name="category"></select>
         </div>
-        <div class="col-md-3 button-wrapper">
+        <div class="button-wrapper">
           <button type="button" class="btn btn-1">Search</button>
         </div>
       </div>
@@ -80,11 +80,13 @@
       <div class="discover_song"></div>
     </div>
     </section>
+  </div>
 
+  <footer>
     <div class="footer">
       <p>All rights reserved</p>
     </div>
-  </div>
+  </footer>
 
   <script id="template-song" type="text/x-handlebars-template">
     <div class="song">

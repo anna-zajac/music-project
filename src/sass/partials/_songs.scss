@@ -21,6 +21,7 @@
     align-items: center;
     font-size: $base-size;
     letter-spacing: 1.5px;
+    color: $color-secondary;
 
     .song_categories {
       margin-left: -90px;
@@ -28,8 +29,8 @@
   }
 
   .player {
-    width: 60%;
-    margin-left: 125px;
+    width: 70%;
+    margin-left: 100px;
   }
 
   .green-audio-player .slider .gap-progress .pin {

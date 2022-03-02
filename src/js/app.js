@@ -23,7 +23,7 @@ const app = {
     const thisApp = this;
 
     const discoverElem = document.querySelector(select.containerOf.discoverPage);
-    thisApp.discoverPage = new Discover(discoverElem, thisApp.data.songs, thisApp.data.authors, thisApp,data.categories);
+    thisApp.discoverPage = new Discover(discoverElem, thisApp.data.songs, thisApp.data.authors, thisApp.data.categories);
   },
 
   initPages: function(){
@@ -133,10 +133,10 @@ const app = {
 
   init: function(){
     const thisApp = this;
-    console.log('*** App starting ***');
-    console.log('thisApp:', thisApp);
-    console.log('classNames:', classNames);
-    console.log('settings:', settings);
+    //console.log('*** App starting ***');
+    //console.log('thisApp:', thisApp);
+    //console.log('classNames:', classNames);
+    //console.log('settings:', settings);
 
     thisApp.initData();
     thisApp.initPages();
