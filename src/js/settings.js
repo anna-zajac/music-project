@@ -18,6 +18,9 @@ export const select = {
 
   form: {
     selectCategory: '#category',
+    button: 'search-button',
+    input: '#search_song',
+    found: 'found',
   },
 };
 

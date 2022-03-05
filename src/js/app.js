@@ -1,7 +1,6 @@
 import Home from './components/Home.js';
 import Search from './components/Search.js';
 import Discover from './components/Discover.js';
-import Song from './components/Song.js';
 import {select, settings, classNames} from './settings.js';
 
 const app = {
@@ -16,7 +15,7 @@ const app = {
     const thisApp = this;
 
     const searchElem = document.querySelector(select.containerOf.searchPage);
-    thisApp.searchPage = new Search(searchElem, thisApp.data.songs, thisApp.data.authors, thisApp.data.categories);
+    thisApp.searchPage = new Search(searchElem, thisApp.data.songs, thisApp.data.categories);
   },
 
   initDiscover: function(){
@@ -75,14 +74,6 @@ const app = {
     }
   },
 
-  initSong: function(){
-    const thisApp = this;
-
-    for(let song in thisApp.data.songs){
-      new Song(thisApp.data.songs[song]);
-    }
-  },
-
   initData: function(){
     const thisApp = this;
 
@@ -128,6 +119,15 @@ const app = {
       });
       song.author = author.name;
       thisApp.data.songs.push(song);
+    }
+
+    thisApp.data.categories = [];
+    for(let song of thisApp.data.songs){
+      for(let category of song.categories){
+        if(!thisApp.data.categories.includes(category)){
+          thisApp.data.categories.push(category);
+        }
+      }
     }
   },
 

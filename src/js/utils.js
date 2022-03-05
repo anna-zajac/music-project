@@ -7,4 +7,8 @@ utils.createDOMFromHTML = function(htmlString) {
   return div.firstChild;
 };
 
+utils.resetWrapper = function(wrapper){
+  wrapper.innerHTML = '';
+};
+
 export default utils;
