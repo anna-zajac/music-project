@@ -1,6 +1,6 @@
 import Song from './Song.js';
-
 import {select} from '../settings.js';
+import utils from '../utils.js';
 
 class Home {
   constructor(element, songs){
@@ -28,17 +28,10 @@ class Home {
       new Song(song, thisHome.dom.songList);
     }
 
-    thisHome.initPlayer();
+    utils.initPlayer();
 
   }
 
-  initPlayer(){
-    // eslint-disable-next-line no-undef
-    GreenAudioPlayer.init({
-      selector: '.player', // inits Green Audio Player on each audio container that has class "player"
-      stopOthersOnPlay: true
-    });
-  }
 }
 
 export default Home;

@@ -12,7 +12,6 @@ class Search{
     thisSearch.data.categories = categories;
 
     thisSearch.getElements(element);
-    thisSearch.renderCategories();
     thisSearch.renderCategorySelect();
     thisSearch.initSearch();
     thisSearch.initPlayer();
@@ -38,19 +37,6 @@ class Search{
 
     const selectContainer = document.querySelector(select.containerOf.searchPage);
     selectContainer.appendChild(thisSearch.categoryElem);
-  }
-
-  renderCategories(){
-    const thisSearch = this;
-
-    for(let category in thisSearch.data.categories){
-      const linkHTML = {name: category};
-      const categoriesSelect = templates.selectCategoryTemplate(linkHTML);
-
-      const categorySelectDOM = utils.createDOMFromHTML(categoriesSelect);
-
-      thisSearch.dom.selectCategory.appendChild(categorySelectDOM);
-    }
   }
 
   initSearch(){
@@ -128,8 +114,6 @@ class Search{
       stopOthersOnPlay: true
     });
   }
-
-
 }
 
 export default Search;
