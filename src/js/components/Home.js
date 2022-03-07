@@ -27,11 +27,7 @@ class Home {
     for(let song of thisHome.data.songs){
       new Song(song, thisHome.dom.songList);
     }
-
-    utils.initPlayer();
-
   }
-
 }
 
 export default Home;

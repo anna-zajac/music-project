@@ -11,13 +11,25 @@ utils.resetWrapper = function(wrapper){
   wrapper.innerHTML = '';
 };
 
-utils.initPlayer = function(){
+utils.initPlayer = function(select){
+  console.log('test');
   // eslint-disable-next-line no-undef
   GreenAudioPlayer.init({
-    selector: '.player', // inits Green Audio Player on each audio container that has class "player"
+    selector: select, // inits Green Audio Player on each audio container that has class "player"
     stopOthersOnPlay: true
   });
 
 };
+
+utils.makeid= function(length) {
+  var result           = '';
+  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  var charactersLength = characters.length;
+  for ( var i = 0; i < length; i++ ) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+};
+
 
 export default utils;

@@ -18,8 +18,12 @@ class Song{
 
     const generatedHTML = templates.song(thisSong.song);
     const songDOM = utils.createDOMFromHTML(generatedHTML);
+    const id = utils.makeid(10);
+    songDOM.setAttribute('id', id);
 
     thisSong.wrapper.appendChild(songDOM);
+    utils.initPlayer('#'+ id);
+
   }
 
 }

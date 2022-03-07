@@ -14,7 +14,6 @@ class Search{
     thisSearch.getElements(element);
     thisSearch.renderCategorySelect();
     thisSearch.initSearch();
-    thisSearch.initPlayer();
 
   }
 
@@ -28,92 +27,53 @@ class Search{
     thisSearch.dom.button = document.querySelector(select.form.button);
     thisSearch.dom.input = document.querySelector(select.form.input);
     thisSearch.dom.found = document.querySelector(select.form.found);
+    thisSearch.dom.category = document.getElementById('category');
   }
 
   renderCategorySelect(){
     const thisSearch = this;
-    const generatedHTML = templates.selectCategoryTemplate(thisSearch.data.categories);
+    const generatedHTML = templates.selectCategoryTemplate({categories:thisSearch.data.categories});
     thisSearch.categoryElem = utils.createDOMFromHTML(generatedHTML);
 
-    const selectContainer = document.querySelector(select.containerOf.searchPage);
-    selectContainer.appendChild(thisSearch.categoryElem);
+
+    thisSearch.dom.category.innerHTML = generatedHTML;
   }
 
   initSearch(){
     const thisSearch = this;
 
-    let numberOfSongs = 0;
-    let matchedSongs = [];
-
-    const categoriesSelect = document.getElementById('category');
-
     thisSearch.dom.button.addEventListener('click', function(event){
       event.preventDefault();
-      utils.resetWrapper(thisSearch.dom.wrapper);
+      //utils.resetWrapper(thisSearch.dom.wrapper);
       thisSearch.dom.found.innerHTML = '';
 
-      numberOfSongs = 0;
-      matchedSongs = [];
+      const matchedSongs = [];
 
-      let selectedCategory = categoriesSelect.value;
+      const selectedCategory = thisSearch.dom.category.value;
+      const inputValue = thisSearch.dom.input.value;
 
-      if(thisSearch.dom.input.value === '' & selectedCategory === 'first-option'){
-        for(let song in thisSearch.data.songs) {
-          matchedSongs.push(thisSearch.data.songs[song]);
-        }
-      } else {
-        if(thisSearch.dom.input.value !== '' && selectedCategory === 'first-option'){
-          for(let song in thisSearch.data.songs){
-            if(thisSearch.data.songs[song].filename.toString().toUpperCase().includes(thisSearch.dom.input.value.toUpperCase())) {
-              matchedSongs.push(thisSearch.data.songs[song]);
-            }
-          }
-        } else {
-          if(thisSearch.dom.input.value == '' && selectedCategory !== 'first-option')
-            for(let song in thisSearch.data.songs){
-
-              const songCategories = thisSearch.data.songs[song].categories;
-
-              if (songCategories.includes(selectedCategory)){
-                if(!matchedSongs.includes(thisSearch.data.songs[song])){
-                  matchedSongs.push(thisSearch.data.songs[song]);
-                }
-              }
-            } else {
-            if(thisSearch.dom.input.value !== '' && selectedCategory !=='first-option')
-              for (let song in thisSearch.data.songs){
-
-                const songCategories = thisSearch.data.songs[song].categories;
-
-                if(songCategories.includes(selectedCategory) && thisSearch.dom.input.value !== ''){
-                  if(thisSearch.data.songs[song].filename.toString().toUpperCase().includes(thisSearch.dom.input.value.toUpperCase())){
-                    matchedSongs.push(thisSearch.data.songs[song]);
-                  }
-                }
-              }
-          }
-        }
+      for(let song of thisSearch.data.songs){
+        if (song.title.includes(inputValue) && (!selectedCategory || song.categories.includes(selectedCategory))){
+          matchedSongs.push(song);
+        }    
+      
       }
 
       for(let song of matchedSongs){
-        new Song(song, thisSearch.dom.wrapper);
+        new Song(song, thisSearch.dom.found);
       }
 
-      thisSearch.initPlayer();
+      if(matchedSongs.length == 0){
+        thisSearch.dom.found.innerHTML = 'No resutls';
+      } else {
+        thisSearch.dom.found.innerHTML = 'We have found' + matchedSongs.length + 'songs' + thisSearch.dom.found.innerHTML;
+      }
 
-      numberOfSongs = matchedSongs.length;
-      numberOfSongs == 1 ? thisSearch.dom.found.innerHTML = 'We have found ${numberOfSongs} song...' : thisSearch.dom.found.innerHTML = 'We have found ${numberOfSongs} songs...';
+     
     });
 
   }
 
-  initPlayer(){
-    // eslint-disable-next-line no-undef
-    GreenAudioPlayer.init({
-      selector: '.player', // inits Green Audio Player on each audio container that has class "player"
-      stopOthersOnPlay: true
-    });
-  }
 }
 
 export default Search;
