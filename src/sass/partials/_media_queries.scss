@@ -1,0 +1,26 @@
+
+@media (min-width: 768px) and (max-width: 991px){
+  .logo {
+    &_title {
+      font-size: 60px;
+      letter-spacing: 20px;
+    }
+  }
+
+  .main-nav {
+    a {
+      font-size: 18px;
+      margin-right: 20px;
+    }
+  }
+
+  .artist {
+    &_name {
+      font-size: 60px;
+    }
+
+    &_album {
+      font-size: 20px;
+    }
+  }
+}

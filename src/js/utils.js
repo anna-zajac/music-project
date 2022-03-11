@@ -15,7 +15,7 @@ utils.initPlayer = function(select){
   console.log('test');
   // eslint-disable-next-line no-undef
   GreenAudioPlayer.init({
-    selector: select, // inits Green Audio Player on each audio container that has class "player"
+    selector: select + ' .player', // inits Green Audio Player on each audio container that has class "player"
     stopOthersOnPlay: true
   });
 

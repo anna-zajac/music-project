@@ -22,7 +22,10 @@ class Song{
     songDOM.setAttribute('id', id);
 
     thisSong.wrapper.appendChild(songDOM);
-    utils.initPlayer('#'+ id);
+
+    setTimeout(() => {
+      utils.initPlayer('#'+ id);
+    }, 10);
 
   }
 

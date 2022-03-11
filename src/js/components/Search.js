@@ -55,8 +55,7 @@ class Search{
       for(let song of thisSearch.data.songs){
         if (song.title.includes(inputValue) && (!selectedCategory || song.categories.includes(selectedCategory))){
           matchedSongs.push(song);
-        }    
-      
+        }     
       }
 
       for(let song of matchedSongs){
@@ -66,14 +65,11 @@ class Search{
       if(matchedSongs.length == 0){
         thisSearch.dom.found.innerHTML = 'No resutls';
       } else {
-        thisSearch.dom.found.innerHTML = 'We have found' + matchedSongs.length + 'songs' + thisSearch.dom.found.innerHTML;
+        thisSearch.dom.found.innerHTML = 'We have found ' + matchedSongs.length + ' song(s)' + thisSearch.dom.found.innerHTML;
       }
 
-     
     });
-
   }
-
 }
 
 export default Search;
