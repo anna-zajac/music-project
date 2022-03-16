@@ -1,15 +1,13 @@
-import {select, templates} from '../settings.js';
-import utils from '../utils.js';
+import {select} from '../settings.js';
 import Song from './Song.js';
 
 class Discover {
-  constructor(element, songs, categories, authors) {
+  constructor(element, songs) {
     const thisDiscover = this;
 
     thisDiscover.data = {};
     thisDiscover.data.songs = songs;
-    thisDiscover.data.songs = categories;
-    thisDiscover.data.songs = authors;
+
 
     thisDiscover.getElements(element);
     thisDiscover.randomSong();
@@ -24,16 +22,6 @@ class Discover {
     thisDiscover.dom.songDiscover = document.querySelector(select.containerOf.discoverPage);
   }
 
-  renderSongInMenu(){
-    const thisDiscover = this;
-    const generatedHTML = templates.song(thisDiscover.data.songs);
-
-    thisDiscover.element = utils.createDOMFromHTML(generatedHTML);
-    const wrapper = document.querySelector(select.containerOf.discoverPage);
-
-    wrapper.appendChild(thisDiscover.element);
-  }
-
   randomSong(){
     const thisDiscover = this;
 
@@ -42,7 +30,7 @@ class Discover {
 
     new Song(thisDiscover.data.songs[random], thisDiscover.dom.songDiscover);
 
-    utils.initPlayer();
+
   }
 
 

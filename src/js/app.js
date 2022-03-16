@@ -22,7 +22,7 @@ const app = {
     const thisApp = this;
 
     const discoverElem = document.querySelector(select.containerOf.discoverPage);
-    thisApp.discoverPage = new Discover(discoverElem, thisApp.data.songs, thisApp.data.authors, thisApp.data.categories);
+    thisApp.discoverPage = new Discover(discoverElem, thisApp.data.songs);
   },
 
   initPages: function(){
